@@ -1,4 +1,4 @@
-import { Option } from './option'
+import * as O from './option'
 
 // SECTION Types
 
@@ -12,4 +12,4 @@ export type Json = boolean | number | string | null | JsonRecord | JsonArray | r
 
 export const encode: (data: Json) => string
 
-export const decode: (data: string) => Option<Json>
+export const decode: (data: string) => O.Option<Json>

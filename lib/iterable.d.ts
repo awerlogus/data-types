@@ -1,19 +1,33 @@
-import { Endo, Arrow } from './function'
-import { Predicate } from './predicate'
-import { Option } from './option'
+import * as B from './predicate'
+import * as F from './function'
+import * as O from './option'
 
 // SECTION Library
 
-export const forEach: <T>(func: Arrow<T, void>) => Arrow<Iterable<T>, void>
+export const forEach: <T>(iter: Iterable<T>, func: F.Arrow<T, void>) => void
 
-export const map: <T, R>(func: Arrow<T, R>) => Arrow<Iterable<T>, Iterable<R>>
+export const forEachC: <T>(func: F.Arrow<T, void>) => F.Arrow<Iterable<T>, void>
 
-export const filter: <T>(predicate: Predicate<[T]>) => Endo<Iterable<T>>
+export const map: <T, R>(iter: Iterable<T>, func: F.Arrow<T, R>) => Iterable<R>
+
+export const mapC: <T, R>(func: F.Arrow<T, R>) => F.Arrow<Iterable<T>, Iterable<R>>
+
+export const filter: <T>(iter: Iterable<T>, predicate: B.Predicate<[T]>) => Iterable<T>
+
+export const filterC: <T>(predicate: B.Predicate<[T]>) => F.Endo<Iterable<T>>
 
 export const merge: <T1, T2>(iter1: Iterable<T1>, iter2: Iterable<T2>) => Iterable<T1 | T2>
 
-export const reduce: <A, B>(func: (acc: A, elem: B) => A, init: A) => (iter: Iterable<B>) => A
+export const mergeC: <T1>(iter1: Iterable<T1>) => <T2>(iter2: Iterable<T2>) => Iterable<T1 | T2>
 
-export const fold: <A>(func: (acc: A, elem: A) => A) => (iter: Iterable<A>) => O.Option<A>
+export const reduce: <A, B>(iter: Iterable<B>, func: F.Func<[A, B], A>, init: A) => A
 
-export const countMatches: <T>(predicate: Predicate<[T]>) => (iter: Iterable<T>) => number
+export const reduceC: <A, B>(func: F.Func<[A, B], A>, init: A) => F.Arrow<Iterable<B>, A>
+
+export const fold: <A>(iter: Iterable<A>, func: F.Semi<A>) => O.Option<A>
+
+export const foldC: <A>(func: F.Semi<A>) => F.Arrow<Iterable<A>, O.Option<A>>
+
+export const countMatches: <T>(iter: Iterable<T>, predicate: B.Predicate<[T]>) => number
+
+export const countMatchesC: <T>(predicate: B.Predicate<[T]>) => F.Arrow<Iterable<T>, number>

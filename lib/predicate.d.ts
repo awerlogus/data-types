@@ -1,5 +1,5 @@
-import { Func } from './function'
-import { Option } from './option'
+import * as F from './function'
+import * as O from './option'
 
 // SECTION Types
 
@@ -25,6 +25,6 @@ export const nand: PredicateCombinator
 
 export const nor: PredicateCombinator
 
-export const then: <P extends ReadonlyArray<any>, R>(pred: Predicate<P>, func: Func<P, R>) => Func<P, Option<R>>
+export const then: <P extends ReadonlyArray<any>, R>(pred: Predicate<P>, func: F.Func<P, R>) => F.Func<P, O.Option<R>>
 
-export const thenElse: <P extends ReadonlyArray<any>, R1, R2>(pred: Predicate<P>, onThen: Func<P, R1>, onElse: Func<P, R2>) => Func<P, R1 | R2>
+export const thenElse: <P extends ReadonlyArray<any>, R1, R2>(pred: Predicate<P>, onThen: F.Func<P, R1>, onElse: F.Func<P, R2>) => F.Func<P, R1 | R2>

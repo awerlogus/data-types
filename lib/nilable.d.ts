@@ -1,4 +1,4 @@
-import { Arrow, Lazy } from './function'
+import * as F from './function'
 import * as N from './nullable'
 import * as O from './option'
 
@@ -14,19 +14,33 @@ export type Nilable<T> = Some<T> | Nil
 
 export const some: <T>(data: T) => Nilable<T>
 
-export const isNil: <T>(data: Nilable<T>) => data is Nil
+export const isNil: <T>(nilable: Nilable<T>) => nilable is Nil
 
-export const isSome: <T>(data: Nilable<T>) => data is Some<T>
+export const isSome: <T>(nilable: Nilable<T>) => nilable is Some<T>
 
-export const map: <P, R>(func: Arrow<P, R>) => Arrow<Nilable<P>, Nilable<R>>
+export const map: <P, R>(nilable: Nilable<P>, func: F.Arrow<P, R>) => Nilable<R>
 
-export const chain: <P, R>(func: Arrow<P, Nilable<R>>) => Arrow<Nilable<P>, Nilable<R>>
+export const mapC: <P, R>(func: F.Arrow<P, R>) => F.Arrow<Nilable<P>, Nilable<R>>
 
-export const getOrElse: <T1>(value: Lazy<T1>) => <T2>(data: Nilable<T2>) => T1 | T2
+export const chain: <P, R>(nilable: Nilable<P>, func: F.Arrow<P, Nilable<R>>) => Nilable<R>
 
-export const fold: <P, R, N>(onSome: Arrow<P, R>, onNull: N) => Arrow<Nilable<P>, R | N>
+export const chainC: <P, R>(func: F.Arrow<P, Nilable<R>>) => F.Arrow<Nilable<P>, Nilable<R>>
 
-export const foldL: <P, R, N>(onSome: Arrow<P, R>, onNull: Lazy<N>) => Arrow<Nilable<P>, R | N>
+export const getOrElse: <T1, T2>(nilable: Nilable<T1>, value: T2) => T1 | T2
+
+export const getOrElseL: <T1, T2>(nilable: Nilable<T1>, value: F.Lazy<T2>) => T1 | T2
+
+export const getOrElseC: <T1>(value: T1) => <T2>(nilable: Nilable<T2>) => T1 | T2
+
+export const getOrElseLC: <T1>(value: F.Lazy<T1>) => <T2>(nilable: Nilable<T2>) => T1 | T2
+
+export const fold: <P, R, N>(nilable: Nilable<P>, onSome: F.Arrow<P, R>, onNil: N) => R | N
+
+export const foldL: <P, R, N>(nilable: Nilable<P>, onSome: F.Arrow<P, R>, onNil: F.Lazy<N>) => R | N
+
+export const foldC: <P, R, N>(onSome: F.Arrow<P, R>, onNull: N) => F.Arrow<Nilable<P>, R | N>
+
+export const foldLC: <P, R, N>(onSome: F.Arrow<P, R>, onNull: F.Lazy<N>) => F.Arrow<Nilable<P>, R | N>
 
 export const toNullable: <T>(value: O.Option<T>) => N.Nullable<T>
 

@@ -1,5 +1,7 @@
-import { Arrow, Lazy } from './function'
-import { Option } from './option'
+import * as F from './function'
+import * as N from './nullable'
+import * as NL from './nilable'
+import * as O from './option'
 
 // SECTION Types
 
@@ -9,22 +11,34 @@ export type Ok<T> = [T]
 
 export type Result<T> = Err | Ok<T>
 
-// SECTION Constants
+// SECTION Library
 
 export const err: Result<never>
 
 export const ok: <T>(data: T) => Result<T>
 
-// SECTION Library
+export const isErr: <T>(result: Result<T>) => result is Err
 
-export const isErr: <T>(data: Result<T>) => data is Err
+export const isOk: <T>(result: Result<T>) => result is Ok<T>
 
-export const isOk: <T>(data: Result<T>) => data is Ok<T>
+export const map: <P, R>(result: Result<P>, func: F.Arrow<P, R>) => Result<R>
 
-export const map: <P, R>(func: Arrow<P, R>) => Arrow<Result<P>, Result<R>>
+export const mapC: <P, R>(func: F.Arrow<P, R>) => F.Arrow<Result<P>, Result<R>>
 
-export const chain: <P, R>(func: Arrow<P, Result<R>>) => Arrow<Result<P>, Result<R>>
+export const chain: <P, R>(result: Result<P>, func: F.Arrow<P, Result<R>>) => Result<R>
 
-export const getOrElse: <T1>(value: Lazy<T1>) => <T2>(data: Result<T2>) => T1 | T2
+export const chainC: <P, R>(func: F.Arrow<P, Result<R>>) => F.Arrow<Result<P>, Result<R>>
 
-export const fromOption: <T>(value: Option<T>) => Result<T>
+export const getOrElse: <T1, T2>(result: Result<T1>, value: T2) => T1 | T2
+
+export const getOrElseL: <T1, T2>(result: Result<T1>, value: F.Lazy<T2>) => T1 | T2
+
+export const getOrElseC: <T1>(value: T1) => <T2>(result: Result<T2>) => T1 | T2
+
+export const getOrElseLC: <T1>(value: F.Lazy<T1>) => <T2>(result: Result<T2>) => T1 | T2
+
+export const fromOption: <T>(option: O.Option<T>) => Result<T>
+
+export const fromNullable: <T>(option: N.Nullable<T>) => Result<T>
+
+export const fromNilable: <T>(option: NL.Nilable<T>) => Result<T>
