@@ -42,6 +42,6 @@ export const foldC: <P, R, N>(onSome: F.Arrow<P, R>, onNull: N) => F.Arrow<Nilab
 
 export const foldLC: <P, R, N>(onSome: F.Arrow<P, R>, onNull: F.Lazy<N>) => F.Arrow<Nilable<P>, R | N>
 
-export const toNullable: <T>(value: O.Option<T>) => N.Nullable<T>
+export const toNullable: <T>(nilable: Nilable<T>) => N.Nullable<T>
 
-export const toOption: <T>(value: N.Nullable<T>) => O.Option<T>
+export const toOption: <T>(nilable: Nilable<T>) => O.Option<T>
