@@ -23,11 +23,11 @@ export const every: <T>(set: Set<T>, predicate: B.Predicate<[T]>) => boolean
 
 export const everyC: <T>(predicate: B.Predicate<[T]>) => B.Predicate<[Set<T>]>
 
-export const map: <I, O>(set: Set<I>, func: F.F.Arrow<I, O>) => Set<O>
+export const map: <I, O>(set: Set<I>, func: F.Arrow<I, O>) => Set<O>
 
 export const mapC: <I, O>(func: F.Arrow<I, O>) => F.Arrow<Set<I>, Set<O>>
 
-export const chain: <I, O>(set: Set<I>, func: F.F.Arrow<I, Set<O>>) => Set<O>
+export const chain: <I, O>(set: Set<I>, func: F.Arrow<I, Set<O>>) => Set<O>
 
 export const chainC: <I, O>(func: F.Arrow<I, Set<O>>) => F.Arrow<Set<I>, Set<O>>
 
