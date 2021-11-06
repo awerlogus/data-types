@@ -21,6 +21,8 @@ export const isErr: <T>(result: Result<T>) => result is Err
 
 export const isOk: <T>(result: Result<T>) => result is Ok<T>
 
+export const get: <T>(result: Ok<T>) => T
+
 export const map: <P, R>(result: Result<P>, func: F.Arrow<P, R>) => Result<R>
 
 export const mapC: <P, R>(func: F.Arrow<P, R>) => F.Arrow<Result<P>, Result<R>>

@@ -30,4 +30,6 @@ export const chain: <E1, T, E2, R>(either: Either<E1, T>, func: F.Arrow<T, Eithe
 
 export const chainC: <T, E2, R>(func: F.Arrow<T, Either<E2, R>>) => <E1>(either: Either<E1, T>) => Either<E1 | E2, R>
 
+export const get: <E, T>(either: Either<E, T>) => E | T
+
 export const extractUnsafe: <E, T>(either: Either<E, T>) => T
