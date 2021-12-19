@@ -36,3 +36,5 @@ export const filter: <T>(set: Set<T>, predicate: B.Predicate<[T]>) => Set<T>
 export const filterC: <T>(predicate: B.Predicate<[T]>) => F.Endo<Set<T>>
 
 export const empty: B.Predicate<[Set<any>]>
+
+export const nonEmpty: B.Predicate<[Set<any>]>
