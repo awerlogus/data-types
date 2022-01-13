@@ -1,6 +1,6 @@
 {
     "name": "@awerlogus/data-types",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "Useful data types for javascript",
     "author": "awerlogus",
     "license": "MIT",
@@ -30,7 +30,7 @@
         "eslint-plugin-standard": "^4.0.1",
         "husky": "^5.0.6",
         "jest": "^26.4.2",
-        "typescript": "^4.4.0-dev.20210708"
+        "typescript": "^4.6.0-dev.20220113"
     },
     "publishConfig": {
         "access": "public"
