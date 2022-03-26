@@ -1,6 +1,6 @@
 import * as F from './function'
 import * as N from './nullable'
-import * as NL from './nilable'
+import * as NO from './nilable'
 import * as O from './option'
 
 // SECTION Types
@@ -43,4 +43,4 @@ export const fromOption: <T>(option: O.Option<T>) => Result<T>
 
 export const fromNullable: <T>(option: N.Nullable<T>) => Result<T>
 
-export const fromNilable: <T>(option: NL.Nilable<T>) => Result<T>
+export const fromNilable: <T>(option: NO.Nilable<T>) => Result<T>
