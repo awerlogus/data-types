@@ -133,7 +133,7 @@
     "no-else-return": ["error", { "allowElseIf": false }],
     "no-empty":["error", { "allowEmptyCatch": true }],
     "no-empty-character-class": "error",
-    "no-empty-function": "error",
+    "no-empty-function": "off",
     "no-empty-pattern": "error",
     "no-eq-null":"error",
     "no-eval": "error",
