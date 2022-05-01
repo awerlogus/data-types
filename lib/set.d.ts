@@ -41,6 +41,10 @@ export const filter: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => Se
 
 export const filterC: <T>(predicate: B.Predicate<[T]>) => F.Arrow<ReadonlySet<T>, Set<T>>
 
+export const equal: <T>(set1: ReadonlySet<T>, set2: ReadonlySet<T>) => boolean
+
+export const equalC: <T>(set1: ReadonlySet<T>) => (set2: ReadonlySet<T>) => boolean
+
 export const empty: B.Predicate<[ReadonlySet<any>]>
 
 export const nonEmpty: B.Predicate<[ReadonlySet<any>]>
