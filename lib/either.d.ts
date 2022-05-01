@@ -2,9 +2,9 @@ import * as F from './function'
 
 // SECTION Types
 
-export type Left<E> = [false, E]
+export type Left<E> = readonly [false, E]
 
-export type Right<T> = [true, T]
+export type Right<T> = readonly [true, T]
 
 export type Either<E, T> = Left<E> | Right<T>
 

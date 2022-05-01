@@ -5,9 +5,9 @@ import * as O from './option'
 
 // SECTION Types
 
-export type Err = []
+export type Err = readonly []
 
-export type Ok<T> = [T]
+export type Ok<T> = readonly [T]
 
 export type Result<T> = Err | Ok<T>
 
