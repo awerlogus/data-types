@@ -2,6 +2,8 @@ import * as F from './function'
 
 // SECTION Library
 
+export const of: <T>(value: T) => Promise<T>
+
 export const map: <P, R>(promise: Promise<P>, func: F.Arrow<P, R>) => Promise<R>
 
 export const mapC: <P, R>(func: F.Arrow<P, R>) => (promise: Promise<P>) => Promise<R>
