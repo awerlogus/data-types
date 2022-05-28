@@ -19,3 +19,7 @@ export const id: <T>(data: T) => T
 export const noop: () => void
 
 export const noopA: () => Promise<void>
+
+export const call: <P extends ReadonlyArray<any>>(...params: P) => <R>(func: Func<P, R>) => R
+
+export const callL: <R>(func: () => R) => R
