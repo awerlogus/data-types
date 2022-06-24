@@ -9,6 +9,26 @@ export type Elem<S extends ReadonlySet<any>> = S extends ReadonlySet<infer E> ? 
 
 // SECTION Library
 
+export const clone: <T>(set: ReadonlySet<T>) => Set<T>
+
+export const has: <T>(set: ReadonlySet<T>, value: T) => boolean
+
+export const hasC: <T>(value: T) => (set: ReadonlySet<T>) => boolean
+
+export const hasCR: <T>(set: ReadonlySet<T>) => (value: T) => boolean
+
+export const add: <T>(set: Set<T>, value: T) => boolean
+
+export const addC: <T>(value: T) => (set: Set<T>) => boolean
+
+export const addCR: <T>(set: Set<T>) => (value: T) => boolean
+
+export const remove: <T>(set: Set<T>, value: T) => boolean
+
+export const removeC: <T>(value: T) => (set: Set<T>) => boolean
+
+export const removeCR: <T>(set: Set<T>) => (value: T) => boolean
+
 export const union: <T1, T2>(set1: ReadonlySet<T1>, set2: ReadonlySet<T2>) => Set<T1 | T2>
 
 export const unionC: <T1>(set1: ReadonlySet<T1>) => <T2>(set2: ReadonlySet<T2>) => Set<T1 | T2>
