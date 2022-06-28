@@ -72,3 +72,7 @@ export const nonEmpty: B.Predicate<[ReadonlySet<any>]>
 export const intersects: <T>(set1: ReadonlySet<T>, set2: ReadonlySet<T>) => boolean
 
 export const intersectsC: <T>(set1: ReadonlySet<T>) => (set2: ReadonlySet<T>) => boolean
+
+export const disjoint: <T>(set1: ReadonlySet<T>, set2: ReadonlySet<T>) => boolean
+
+export const disjointC: <T>(set1: ReadonlySet<T>) => (set2: ReadonlySet<T>) => boolean
