@@ -53,9 +53,9 @@ export const map: <I, O>(set: ReadonlySet<I>, func: F.Arrow<I, O>) => Set<O>
 
 export const mapC: <I, O>(func: F.Arrow<I, O>) => F.Arrow<ReadonlySet<I>, Set<O>>
 
-export const chain: <I, O>(set: ReadonlySet<I>, func: F.Arrow<I, Set<O>>) => Set<O>
+export const chain: <I, O>(set: ReadonlySet<I>, func: F.Arrow<I, ReadonlySet<O>>) => Set<O>
 
-export const chainC: <I, O>(func: F.Arrow<I, Set<O>>) => F.Arrow<ReadonlySet<I>, Set<O>>
+export const chainC: <I, O>(func: F.Arrow<I, ReadonlySet<O>>) => F.Arrow<ReadonlySet<I>, Set<O>>
 
 export const filter: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => Set<T>
 
