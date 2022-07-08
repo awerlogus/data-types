@@ -1,3 +1,7 @@
+// SECTION Types
+
+export type Elem<MM extends ReadonlyMap<any, ReadonlyMap<any, any>>> = MM extends ReadonlyMap<any, ReadonlyMap<any, infer E>> ? E : never
+
 // SECTION Library
 
 export const clone: <K1, K2, V>(map: ReadonlyMap<K1, ReadonlyMap<K2, V>>) => Map<K1, Map<K2, V>>
@@ -49,3 +53,5 @@ export const remove: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2) =
 export const removeC: <K1, K2>(key1: K1, key2: K2) => <V>(map: Map<K1, Map<K2, V>>) => boolean
 
 export const removeCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2) => boolean
+
+export const valuesDisjoint: <K1, K2, V>(map: ReadonlyMap<K1, ReadonlyMap<K2, V>>) => boolean

@@ -1,5 +1,9 @@
 import * as O from './option'
 
+// SECTION Types
+
+export type Elem<M extends ReadonlyMap<any, any>> = M extends ReadonlyMap<any, infer E> ? E : never
+
 // SECTION Library
 
 export const clone: <K, V>(map: ReadonlyMap<K, V>) => Map<K, V>
@@ -39,3 +43,5 @@ export const remove: <K, V>(map: Map<K, V>, key: K) => boolean
 export const removeC: <K>(key: K) => <V>(map: Map<K, V>) => boolean
 
 export const removeCR: <K, V>(map: Map<K, V>) => (key: K) => boolean
+
+export const valuesDisjoint: <K, V>(map: ReadonlyMap<K, V>) => boolean
