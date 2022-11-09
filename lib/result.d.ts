@@ -25,11 +25,11 @@ export const get: <T>(result: Ok<T>) => T
 
 export const map: <P, R>(result: Result<P>, func: F.Arrow<P, R>) => Result<R>
 
-export const mapC: <P, R>(func: F.Arrow<P, R>) => F.Arrow<Result<P>, Result<R>>
+export const mapC: <P, R>(func: F.Arrow<P, R>) => (result: Result<P>) => Result<R>
 
 export const chain: <P, R>(result: Result<P>, func: F.Arrow<P, Result<R>>) => Result<R>
 
-export const chainC: <P, R>(func: F.Arrow<P, Result<R>>) => F.Arrow<Result<P>, Result<R>>
+export const chainC: <P, R>(func: F.Arrow<P, Result<R>>) => (result: Result<P>) => Result<R>
 
 export const getOrElse: <T1, T2>(result: Result<T1>, value: T2) => T1 | T2
 
