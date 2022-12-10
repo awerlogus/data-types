@@ -1,3 +1,5 @@
+import * as F from './function'
+
 // SECTION Types
 
 export type Elem<MM extends ReadonlyMap<any, ReadonlyMap<any, any>>> = MM extends ReadonlyMap<any, ReadonlyMap<any, infer E>> ? E : never
@@ -53,5 +55,11 @@ export const remove: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2) =
 export const removeC: <K1, K2>(key1: K1, key2: K2) => <V>(map: Map<K1, Map<K2, V>>) => boolean
 
 export const removeCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2) => boolean
+
+export const mapValues: <K1, K2, VP, VR>(map: ReadonlyMap<K1, ReadonlyMap<K2, VP>>, func: F.Arrow<VP, VR>) => Map<K1, Map<K2, VR>>
+
+export const mapValuesC: <VP, VR>(func: F.Arrow<VP, VR>) => <K1, K2>(map: ReadonlyMap<K1, ReadonlyMap<K2, VP>>) => Map<K1, Map<K2, VR>>
+
+export const mapValuesCR: <K1, K2, VP>(map: ReadonlyMap<K1, ReadonlyMap<K2, VP>>) => <VR>(func: F.Arrow<VP, VR>) => Map<K1, Map<K2, VR>>
 
 export const valuesDisjoint: <K1, K2, V>(map: ReadonlyMap<K1, ReadonlyMap<K2, V>>) => boolean

@@ -1,3 +1,4 @@
+import * as F from './function'
 import * as O from './option'
 
 // SECTION Types
@@ -43,5 +44,11 @@ export const remove: <K, V>(map: Map<K, V>, key: K) => boolean
 export const removeC: <K>(key: K) => <V>(map: Map<K, V>) => boolean
 
 export const removeCR: <K, V>(map: Map<K, V>) => (key: K) => boolean
+
+export const mapValues: <K, VP, VR>(map: ReadonlyMap<K, VP>, func: F.Arrow<VP, VR>) => Map<K, VR>
+
+export const mapValuesC: <VP, VR>(func: F.Arrow<VP, VR>) => <K>(map: ReadonlyMap<K, VP>) => Map<K, VR>
+
+export const mapValuesCR: <K, VP>(map: ReadonlyMap<K, VP>) => <VR>(func: F.Arrow<VP, VR>) => Map<K, VR>
 
 export const valuesDisjoint: <K, V>(map: ReadonlyMap<K, V>) => boolean
