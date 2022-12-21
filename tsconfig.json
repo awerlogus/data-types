@@ -2,7 +2,6 @@
     "compilerOptions": {
       "noUncheckedIndexedAccess": true,
       "alwaysStrict": true,
-      "keyofStringsOnly": true,
       "noFallthroughCasesInSwitch": true,
       "downlevelIteration": true,
       "allowUnreachableCode": false,

@@ -12,8 +12,6 @@ export type Nilable<T> = Some<T> | Nil
 
 // SECTION Library
 
-export const some: <T>(data: T) => Nilable<T>
-
 export const isNil: <T>(nilable: Nilable<T>) => nilable is Nil
 
 export const isSome: <T>(nilable: Nilable<T>) => nilable is Some<T>

@@ -10,8 +10,6 @@ export type Nullable<T> = Some<T> | Null
 
 // SECTION Library
 
-export const some: <T>(data: T) => Nullable<T>
-
 export const isNull: <T>(nullable: Nullable<T>) => nullable is Null
 
 export const isSome: <T>(nullable: Nullable<T>) => nullable is Some<T>

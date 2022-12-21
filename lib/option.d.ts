@@ -12,8 +12,6 @@ export type Option<T> = Some<T> | None
 
 export const none: Option<never>
 
-export const some: <T>(data: T) => Option<T>
-
 export const isNone: <T>(option: Option<T>) => option is None
 
 export const isSome: <T>(option: Option<T>) => option is Some<T>
