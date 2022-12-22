@@ -10,11 +10,11 @@ export type Elem<T extends ReadonlyArray<any>> = T extends ReadonlyArray<infer E
 
 // SECTION Library
 
-export const map: <T, R>(array: ReadonlyArray<T>, func: F.Arrow<T, R>) => Array<R>
+export const map: <P, R>(array: ReadonlyArray<P>, func: F.Arrow<P, R>) => Array<R>
 
-export const mapC: <T, R>(func: F.Arrow<T, R>) => (array: ReadonlyArray<T>) => Array<R>
+export const mapC: <P, R>(func: F.Arrow<P, R>) => (array: ReadonlyArray<P>) => Array<R>
 
-export const mapCR: <T>(array: ReadonlyArray<T>) => <R>(func: F.Arrow<T, R>) => Array<R>
+export const mapCR: <P>(array: ReadonlyArray<P>) => <R>(func: F.Arrow<P, R>) => Array<R>
 
 export const filter: <T>(array: ReadonlyArray<T>, predicate: B.Predicate<[T]>) => Array<T>
 

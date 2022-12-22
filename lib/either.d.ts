@@ -22,13 +22,19 @@ export const map: <E, T, R>(either: Either<E, T>, func: F.Arrow<T, R>) => Either
 
 export const mapC: <T, R>(func: F.Arrow<T, R>) => <E>(either: Either<E, T>) => Either<E, R>
 
+export const mapCR: <E, T>(either: Either<E, T>) => <R>(func: F.Arrow<T, R>) => Either<E, R>
+
 export const mapLeft: <E1, E2, T>(either: Either<E1, T>, func: F.Arrow<E1, E2>) => Either<E2, T>
 
 export const mapLeftC: <E1, E2>(func: F.Arrow<E1, E2>) => <T>(either: Either<E1, T>) => Either<E2, T>
 
+export const mapLeftCR: <E1, T>(either: Either<E1, T>) => <E2>(func: F.Arrow<E1, E2>) => Either<E2, T>
+
 export const chain: <E1, T, E2, R>(either: Either<E1, T>, func: F.Arrow<T, Either<E2, R>>) => Either<E1 | E2, R>
 
 export const chainC: <T, E2, R>(func: F.Arrow<T, Either<E2, R>>) => <E1>(either: Either<E1, T>) => Either<E1 | E2, R>
+
+export const chainCR: <T, E1>(either: Either<E1, T>) => <E2, R>(func: F.Arrow<T, Either<E2, R>>) => Either<E1 | E2, R>
 
 export const get: <E, T>(either: Either<E, T>) => E | T
 

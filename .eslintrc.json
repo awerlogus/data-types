@@ -142,7 +142,10 @@
     "no-extra-bind": "error",
     "no-extra-label": "error",
     "no-extra-boolean-cast": "error",
-    "no-extra-parens": ["error", "all", {"nestedBinaryExpressions": false}],
+    "no-extra-parens": ["error", "all", {
+      "nestedBinaryExpressions": false,
+      "allowParensAfterCommentPattern": "@type"
+    }],
     "no-extra-semi": "error",
     "no-fallthrough": "error",
     "no-floating-decimal": "error",

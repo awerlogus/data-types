@@ -27,9 +27,13 @@ export const map: <P, R>(result: Result<P>, func: F.Arrow<P, R>) => Result<R>
 
 export const mapC: <P, R>(func: F.Arrow<P, R>) => (result: Result<P>) => Result<R>
 
+export const mapCR: <P>(result: Result<P>) => <R>(func: F.Arrow<P, R>) => Result<R>
+
 export const chain: <P, R>(result: Result<P>, func: F.Arrow<P, Result<R>>) => Result<R>
 
 export const chainC: <P, R>(func: F.Arrow<P, Result<R>>) => (result: Result<P>) => Result<R>
+
+export const chainCR: <P>(result: Result<P>) => <R>(func: F.Arrow<P, Result<R>>) => Result<R>
 
 export const getOrElse: <T1, T2>(result: Result<T1>, value: T2) => T1 | T2
 
@@ -38,6 +42,10 @@ export const getOrElseL: <T1, T2>(result: Result<T1>, value: F.Lazy<T2>) => T1 |
 export const getOrElseC: <T1>(value: T1) => <T2>(result: Result<T2>) => T1 | T2
 
 export const getOrElseLC: <T1>(value: F.Lazy<T1>) => <T2>(result: Result<T2>) => T1 | T2
+
+export const getOrElseCR: <T2>(result: Result<T2>) => <T1>(value: T1) => T1 | T2
+
+export const getOrElseLCR: <T2>(result: Result<T2>) => <T1>(value: F.Lazy<T1>) => T1 | T2
 
 export const fromOption: <T>(option: O.Option<T>) => Result<T>
 

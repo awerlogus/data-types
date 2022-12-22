@@ -37,29 +37,43 @@ export const separate: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => 
 
 export const separateC: <T>(predicate: B.Predicate<[T]>) => (set: ReadonlySet<T>) => [onTrue: Set<T>, onFalse: Set<T>]
 
+export const separateCR: <T>(set: ReadonlySet<T>) => (predicate: B.Predicate<[T]>) => [onTrue: Set<T>, onFalse: Set<T>]
+
 export const some: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => boolean
 
 export const someC: <T>(predicate: B.Predicate<[T]>) => (set: ReadonlySet<T>) => boolean
+
+export const someCR: <T>(set: ReadonlySet<T>) => (predicate: B.Predicate<[T]>) => boolean
 
 export const none: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => boolean
 
 export const noneC: <T>(predicate: B.Predicate<[T]>) => (set: ReadonlySet<T>) => boolean
 
+export const noneCR: <T>(set: ReadonlySet<T>) => (predicate: B.Predicate<[T]>) => boolean
+
 export const every: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => boolean
 
 export const everyC: <T>(predicate: B.Predicate<[T]>) => (set: ReadonlySet<T>) => boolean
 
-export const map: <I, O>(set: ReadonlySet<I>, func: F.Arrow<I, O>) => Set<O>
+export const everyCR: <T>(set: ReadonlySet<T>) => (predicate: B.Predicate<[T]>) => boolean
 
-export const mapC: <I, O>(func: F.Arrow<I, O>) => (set: ReadonlySet<I>) => Set<O>
+export const map: <P, R>(set: ReadonlySet<P>, func: F.Arrow<P, R>) => Set<R>
 
-export const chain: <I, O>(set: ReadonlySet<I>, func: F.Arrow<I, ReadonlySet<O>>) => Set<O>
+export const mapC: <P, R>(func: F.Arrow<P, R>) => (set: ReadonlySet<P>) => Set<R>
 
-export const chainC: <I, O>(func: F.Arrow<I, ReadonlySet<O>>) => (set: ReadonlySet<I>) => Set<O>
+export const mapCR: <P>(set: ReadonlySet<P>) => <R>(func: F.Arrow<P, R>) => Set<R>
+
+export const chain: <P, R>(set: ReadonlySet<P>, func: F.Arrow<P, ReadonlySet<R>>) => Set<R>
+
+export const chainC: <P, R>(func: F.Arrow<P, ReadonlySet<R>>) => (set: ReadonlySet<P>) => Set<R>
+
+export const chainCR: <P>(set: ReadonlySet<P>) => <R>(func: F.Arrow<P, ReadonlySet<R>>) => Set<R>
 
 export const filter: <T>(set: ReadonlySet<T>, predicate: B.Predicate<[T]>) => Set<T>
 
 export const filterC: <T>(predicate: B.Predicate<[T]>) => (set: ReadonlySet<T>) => Set<T>
+
+export const filterCR: <T>(set: ReadonlySet<T>) => (predicate: B.Predicate<[T]>) => Set<T>
 
 export const equal: <T>(set1: ReadonlySet<T>, set2: ReadonlySet<T>) => boolean
 

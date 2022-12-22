@@ -20,9 +20,13 @@ export const map: <P, R>(nilable: Nilable<P>, func: F.Arrow<P, R>) => Nilable<R>
 
 export const mapC: <P, R>(func: F.Arrow<P, R>) => (nilable: Nilable<P>) => Nilable<R>
 
+export const mapCR: <P>(nilable: Nilable<P>) => <R>(func: F.Arrow<P, R>) => Nilable<R>
+
 export const chain: <P, R>(nilable: Nilable<P>, func: F.Arrow<P, Nilable<R>>) => Nilable<R>
 
 export const chainC: <P, R>(func: F.Arrow<P, Nilable<R>>) => (nilable: Nilable<P>) => Nilable<R>
+
+export const chainCR: <P>(nilable: Nilable<P>) => <R>(func: F.Arrow<P, Nilable<R>>) => Nilable<R>
 
 export const getOrElse: <T1, T2>(nilable: Nilable<T1>, value: T2) => T1 | T2
 
@@ -32,6 +36,10 @@ export const getOrElseC: <T1>(value: T1) => <T2>(nilable: Nilable<T2>) => T1 | T
 
 export const getOrElseLC: <T1>(value: F.Lazy<T1>) => <T2>(nilable: Nilable<T2>) => T1 | T2
 
+export const getOrElseCR: <T2>(nilable: Nilable<T2>) => <T1>(value: T1) => T1 | T2
+
+export const getOrElseLCR: <T2>(nilable: Nilable<T2>) => <T1>(value: F.Lazy<T1>) => T1 | T2
+
 export const fold: <P, R, N>(nilable: Nilable<P>, onSome: F.Arrow<P, R>, onNil: N) => R | N
 
 export const foldL: <P, R, N>(nilable: Nilable<P>, onSome: F.Arrow<P, R>, onNil: F.Lazy<N>) => R | N
@@ -39,6 +47,10 @@ export const foldL: <P, R, N>(nilable: Nilable<P>, onSome: F.Arrow<P, R>, onNil:
 export const foldC: <P, R, N>(onSome: F.Arrow<P, R>, onNull: N) => (nilable: Nilable<P>) => R | N
 
 export const foldLC: <P, R, N>(onSome: F.Arrow<P, R>, onNull: F.Lazy<N>) => (nilable: Nilable<P>) => R | N
+
+export const foldCR: <P>(nilable: Nilable<P>) => <R, N>(onSome: F.Arrow<P, R>, onNil: N) => R | N
+
+export const foldLCR: <P>(nilable: Nilable<P>) => <R, N>(onSome: F.Arrow<P, R>, onNil: F.Lazy<N>) => R | N
 
 export const toNullable: <T>(nilable: Nilable<T>) => N.Nullable<T>
 
