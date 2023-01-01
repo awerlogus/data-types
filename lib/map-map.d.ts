@@ -1,4 +1,5 @@
 import * as F from './function'
+import * as O from './option'
 
 // SECTION Types
 
