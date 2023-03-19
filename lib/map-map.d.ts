@@ -45,11 +45,20 @@ export const setC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Ma
 
 export const setCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
 
+/** @deprecated */
 export const setU: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
 
+/** @deprecated */
 export const setUC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Map<K2, V>>) => boolean
 
+/** @deprecated */
 export const setUCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
+
+export const update: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
+
+export const updateC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Map<K2, V>>) => boolean
+
+export const updateCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
 
 export const remove: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2) => boolean
 
