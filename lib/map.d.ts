@@ -48,6 +48,12 @@ export const updateC: <K, V>(key: K, value: V) => (map: Map<K, V>) => boolean
 
 export const updateCR: <K, V>(map: Map<K, V>) => (key: K, value: V) => boolean
 
+export const upsert: <K, V>(map: Map<K, V>, key: K, value: V) => boolean
+
+export const upsertC: <K, V>(key: K, value: V) => (map: Map<K, V>) => boolean
+
+export const upsertCR: <K, V>(map: Map<K, V>) => (key: K, value: V) => boolean
+
 export const remove: <K, V>(map: Map<K, V>, key: K) => boolean
 
 export const removeC: <K>(key: K) => <V>(map: Map<K, V>) => boolean

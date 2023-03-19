@@ -60,6 +60,12 @@ export const updateC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1,
 
 export const updateCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
 
+export const upsert: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
+
+export const upsertC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Map<K2, V>>) => boolean
+
+export const upsertCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
+
 export const remove: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2) => boolean
 
 export const removeC: <K1, K2>(key1: K1, key2: K2) => <V>(map: Map<K1, Map<K2, V>>) => boolean
