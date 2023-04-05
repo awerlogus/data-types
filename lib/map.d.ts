@@ -21,6 +21,12 @@ export const getC: <K>(key: K) => <V>(map: ReadonlyMap<K, V>) => O.Option<V>
 
 export const getCR: <K, V>(map: ReadonlyMap<K, V>) => (key: K) => O.Option<V>
 
+export const getUnsafe: <K, V>(map: ReadonlyMap<K, V>, key: K) => V
+
+export const getUnsafeC: <K>(key: K) => <V>(map: ReadonlyMap<K, V>) => V
+
+export const getUnsafeCR: <K, V>(map: ReadonlyMap<K, V>) => (key: K) => V
+
 export const keys: <K, V>(map: ReadonlyMap<K, V>) => Iterable<K>
 
 export const values: <K, V>(map: ReadonlyMap<K, V>) => Iterable<V>
