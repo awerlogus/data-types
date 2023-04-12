@@ -33,11 +33,20 @@ export const values: <K, V>(map: ReadonlyMap<K, V>) => Iterable<V>
 
 export const entries: <K, V>(map: ReadonlyMap<K, V>) => Iterable<[K, V]>
 
+/** @deprecated */
 export const set: <K, V>(map: Map<K, V>, key: K, value: V) => boolean
 
+/** @deprecated */
 export const setC: <K, V>(key: K, value: V) => (map: Map<K, V>) => boolean
 
+/** @deprecated */
 export const setCR: <K, V>(map: Map<K, V>) => (key: K, value: V) => boolean
+
+export const insert: <K, V>(map: Map<K, V>, key: K, value: V) => boolean
+
+export const insertC: <K, V>(key: K, value: V) => (map: Map<K, V>) => boolean
+
+export const insertCR: <K, V>(map: Map<K, V>) => (key: K, value: V) => boolean
 
 /** @deprecated */
 export const setU: <K, V>(map: Map<K, V>, key: K, value: V) => boolean
