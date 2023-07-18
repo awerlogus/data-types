@@ -16,6 +16,8 @@ export const flow: <A extends ReadonlyArray<any>, B, C>(func1: Func<A, B>, func2
 
 export const flowC: <A extends ReadonlyArray<any>, B>(func1: Func<A, B>) => <C>(func2: Arrow<B, C>) => Func<A, C>
 
+export const flowCR: <B, C>(func2: Arrow<B, C>) => <A extends ReadonlyArray<any>>(func1: Func<A, B>) => Func<A, C>
+
 export const id: <T>(data: T) => T
 
 export const noop: () => void
