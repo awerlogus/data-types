@@ -51,3 +51,5 @@ export const foldLC: <P, R, N>(onSome: F.Arrow<P, R>, onNone: F.Lazy<N>) => (opt
 export const foldCR: <P>(option: Option<P>) => <R, N>(onSome: F.Arrow<P, R>, onNone: N) => R | N
 
 export const foldLCR: <P>(option: Option<P>) => <R, N>(onSome: F.Arrow<P, R>, onNone: F.Lazy<N>) => R | N
+
+export const toArray: <T>(option: Option<T>) => Array<T>
