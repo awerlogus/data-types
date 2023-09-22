@@ -12,6 +12,8 @@ export type Elem<T extends ReadonlyArray<any>> = T extends ReadonlyArray<infer E
 
 export const map: <P, R>(array: ReadonlyArray<P>, func: F.Arrow<P, R>) => Array<R>
 
+export const setAt: <T>(array: ReadonlyArray<T>, index: number, data: T) => Array<T>
+
 export const mapC: <P, R>(func: F.Arrow<P, R>) => (array: ReadonlyArray<P>) => Array<R>
 
 export const mapCR: <P>(array: ReadonlyArray<P>) => <R>(func: F.Arrow<P, R>) => Array<R>
