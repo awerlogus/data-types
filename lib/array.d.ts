@@ -20,6 +20,8 @@ export const mapCR: <P>(array: ReadonlyArray<P>) => <R>(func: F.Arrow<P, R>) => 
 
 export const filter: <T>(array: ReadonlyArray<T>, predicate: B.Predicate<[T]>) => Array<T>
 
+export const withCopy: <T>(array: ReadonlyArray<T>, func: F.Arrow<Array<T>, void>) => Array<T>
+
 export const filterC: <T>(predicate: B.Predicate<[T]>) => (array: ReadonlyArray<T>) => Array<T>
 
 export const filterCR: <T>(array: ReadonlyArray<T>) => (predicate: B.Predicate<[T]>) => Array<T>
