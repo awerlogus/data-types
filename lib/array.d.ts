@@ -10,9 +10,13 @@ export type Elem<T extends ReadonlyArray<any>> = T extends ReadonlyArray<infer E
 
 // SECTION Library
 
-export const map: <P, R>(array: ReadonlyArray<P>, func: F.Arrow<P, R>) => Array<R>
+export const setAt: <T>(array: Array<T>, index: number, data: T) => void
 
-export const setAt: <T>(array: ReadonlyArray<T>, index: number, data: T) => Array<T>
+export const setAtC: <T>(index: number, data: T) => (array: Array<T>) => void
+
+export const setAtCR: <T>(array: Array<T>) => (index: number, data: T) => void
+
+export const map: <P, R>(array: ReadonlyArray<P>, func: F.Arrow<P, R>) => Array<R>
 
 export const mapC: <P, R>(func: F.Arrow<P, R>) => (array: ReadonlyArray<P>) => Array<R>
 
@@ -26,9 +30,13 @@ export const filterC: <T>(predicate: B.Predicate<[T]>) => (array: ReadonlyArray<
 
 export const filterCR: <T>(array: ReadonlyArray<T>) => (predicate: B.Predicate<[T]>) => Array<T>
 
+export const withCopyCR: <T>(array: ReadonlyArray<T>) => (func: F.Arrow<Array<T>, void>) => Array<T>
+
 export const separate: <T>(array: ReadonlyArray<T>, predicate: B.Predicate<[T]>) => [Array<T>, Array<T>]
 
 export const separateC: <T>(predicate: B.Predicate<[T]>) => (array: ReadonlyArray<T>) => [Array<T>, Array<T>]
+
+export const withCopyC: <T>(func: F.Arrow<Array<T>, void>) => <R extends T>(array: ReadonlyArray<R>) => Array<R>
 
 export const separateCR: <T>(array: ReadonlyArray<T>) => (predicate: B.Predicate<[T]>) => [Array<T>, Array<T>]
 
