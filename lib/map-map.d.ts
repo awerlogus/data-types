@@ -45,29 +45,11 @@ export const entriesC: <K1>(key: K1) => <K2, V>(map: ReadonlyMap<K1, ReadonlyMap
 
 export const entriesCR: <K1, K2, V>(map: ReadonlyMap<K1, ReadonlyMap<K2, V>>) => (key: K1) => Iterable<[K2, V]>
 
-/** @deprecated */
-export const set: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
-
-/** @deprecated */
-export const setC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Map<K2, V>>) => boolean
-
-/** @deprecated */
-export const setCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
-
 export const insert: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
 
 export const insertC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Map<K2, V>>) => boolean
 
 export const insertCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
-
-/** @deprecated */
-export const setU: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
-
-/** @deprecated */
-export const setUC: <K1, K2, V>(key1: K1, key2: K2, value: V) => (map: Map<K1, Map<K2, V>>) => boolean
-
-/** @deprecated */
-export const setUCR: <K1, K2, V>(map: Map<K1, Map<K2, V>>) => (key1: K1, key2: K2, value: V) => boolean
 
 export const update: <K1, K2, V>(map: Map<K1, Map<K2, V>>, key1: K1, key2: K2, value: V) => boolean
 
