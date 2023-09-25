@@ -22,11 +22,20 @@ export const filterC: <T>(predicate: B.Predicate<[T]>) => (iter: Iterable<T>) =>
 
 export const filterCR: <T>(iter: Iterable<T>) => (predicate: B.Predicate<[T]>) => Iterable<T>
 
+/** @deprecated use concat instead */
 export const merge: <T1, T2>(iter1: Iterable<T1>, iter2: Iterable<T2>) => Iterable<T1 | T2>
 
+/** @deprecated use concatC instead */
 export const mergeC: <T1>(iter1: Iterable<T1>) => <T2>(iter2: Iterable<T2>) => Iterable<T1 | T2>
 
+/** @deprecated use concatCR instead */
 export const mergeCR: <T2>(iter2: Iterable<T2>) => <T1>(iter1: Iterable<T1>) => Iterable<T1 | T2>
+
+export const concat: <T1, T2>(iter1: Iterable<T1>, iter2: Iterable<T2>) => Iterable<T1 | T2>
+
+export const concatC: <T1>(iter1: Iterable<T1>) => <T2>(iter2: Iterable<T2>) => Iterable<T1 | T2>
+
+export const concatCR: <T2>(iter2: Iterable<T2>) => <T1>(iter1: Iterable<T1>) => Iterable<T1 | T2>
 
 export const reduce: <P, R>(iter: Iterable<R>, func: F.Func<[P, R], P>, init: P) => P
 
